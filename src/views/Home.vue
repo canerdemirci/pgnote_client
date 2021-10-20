@@ -61,13 +61,15 @@ export default {
   },
   methods: {
     ...mapActions([
-      'fetchNotes'
+      'fetchNotes',
+      'fetchAndAddToNotes',
+      'notesNextPage'
     ]),
     loadMoreNotes() {
       // Next page (offset = page * limit)
-      this.$store.dispatch('notesNextPage');
+      this.notesNextPage();
       // Fetch notes and add note list
-      this.$store.dispatch('fetchAndAddToNotes');
+      this.fetchAndAddToNotes();
     },
     showNoteEditForm() {
       this.$store.dispatch('toggleNoteEditForm', null);
